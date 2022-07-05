@@ -1,0 +1,14 @@
+header {
+    background-color: #D4A373;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6vh;
+}
+
+.header__title {
+    color: #fff;
+}
