@@ -15,3 +15,14 @@ body {
     margin: 0 auto;
 }
 
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    padding: 30px;
+    padding-top: 15px;
+    background-color: #D4A373;
+    border-radius: 5px;
+    border: 2px solid #FEFAE0;
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StoreService } from 'src/app/services/store.service';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,13 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private storeService: StoreService, private uiService: UiService) { }
 
   ngOnInit(): void {
   }
 
-  saveText() {
-    console.log('test');
+  showSaveMenu() {
+    this.uiService.toggleSaveMenu();
   }
+
 
 }

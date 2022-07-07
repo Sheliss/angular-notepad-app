@@ -1,5 +1,5 @@
 <section class="field">
     <div class="field__inner">
-        <textarea name="text" id="text" placeholder="Type here..."></textarea>
+    <textarea name="text" [(ngModel)]="text" (ngModelChange)="onChange()" id="text" placeholder="Type here..."></textarea>
 </div>
 </section>
