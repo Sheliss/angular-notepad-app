@@ -9,6 +9,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ButtonComponent } from './components/button/button.component';
 import { FieldComponent } from './components/field/field.component';
 import { SaveComponent } from './components/save/save.component';
+import { LoadComponent } from './components/load/load.component';
+import { LoadItemComponent } from './components/load-item/load-item.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { SaveComponent } from './components/save/save.component';
     MenuComponent,
     ButtonComponent,
     FieldComponent,
-    SaveComponent
+    SaveComponent,
+    LoadComponent,
+    LoadItemComponent
   ],
   imports: [
     BrowserModule,

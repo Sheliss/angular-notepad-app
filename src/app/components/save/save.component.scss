@@ -3,14 +3,6 @@
         display: flex;
         flex-direction: column;
 
-        .save__desc {
-            margin-bottom: 15px;
-            font-size: 20px;
-            font-weight: 700;
-            color: #fff;
-            text-align: center;
-        }
-
         .save__name {
             width: 300px;
             font-size: 20px;
@@ -23,21 +15,6 @@
             text-align: center;
         }
 
-        .save__btn {
-            padding: 5px 10px;
-            font-size: 20px;
-            border: 2px solid #E9EDC9;
-            border-radius: 5px;
-            background-color: #D4A373;
-            color: #fff;
-            transition: all .1s;
-            cursor: pointer;
-
-            &:hover {
-                background-color: #E9EDC9;
-                color: #000;
-                border-color: #E9EDC9;
-            }
-        }
+        
     }
 }

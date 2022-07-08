@@ -18,9 +18,9 @@ export class StoreService {
   }
 
 
-  private getNotes () {
+  getNotes () {
     if(localStorage.getItem('notes') === null) {
-      const empty = JSON.stringify([]);                //Empty array in new browser
+      const empty = JSON.stringify([]);      
       localStorage.setItem('notes', empty)
     }
 
@@ -30,8 +30,9 @@ export class StoreService {
 
   saveNote (name: string) {
     const currentNote: Notes = {
-     name: name,
-     text: this.text.value
+      id: -1,
+      name: name,
+      text: this.text.value
     }
 
     let notes: Notes[] = this.getNotes();

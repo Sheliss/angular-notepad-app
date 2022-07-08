@@ -1,9 +1,9 @@
 <div *ngIf="showSave" class="popup">
     <div class="save__menu">
+        <h2 class="popup__title">Note save</h2>
         <form (ngSubmit)="saveNote()">
-            <label class="save__desc" for="text"> Note save </label>
             <input [(ngModel)]="name" class="save__name" type="text" name="name" id="name" placeholder="Enter note name here" >
-            <input class="save__btn" type="submit" value="Save note">
+            <input class="popup__btn" type="submit" value="Save note">
         </form>
     </div>
 </div>

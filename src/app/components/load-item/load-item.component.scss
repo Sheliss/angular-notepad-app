@@ -1,0 +1,16 @@
+.load__item {
+    width: 300px;
+    background-color: #FEFAE0;
+    padding: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+
+    h3 {
+        font-weight: 400;
+    }
+
+    &:hover {
+        background-color: #FAEDCD;
+    }
+
+}

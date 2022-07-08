@@ -1,0 +1,5 @@
+<div class="popup">
+    <h2 class="popup__title">Note load</h2>
+    <app-load-item (onNoteSelected)="noteSelect(note)" *ngFor="let note of notes" [note]="note"></app-load-item>
+    <button class="popup__btn">Load note</button>
+</div>
