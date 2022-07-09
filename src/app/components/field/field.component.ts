@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { StoreService } from 'src/app/services/store.service';
+import { NotesService } from 'src/app/services/notes.service';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-field',
@@ -9,14 +10,19 @@ import { StoreService } from 'src/app/services/store.service';
 export class FieldComponent implements OnInit {
   text: string = '';
 
-  constructor(private storeService: StoreService) { }
+  constructor(private notesService: NotesService, private uiService: UiService) { }
 
   ngOnInit(): void {
-    this.storeService.cast.subscribe((text: string) => this.text = text);
+    this.notesService.cast.subscribe((text: string) => this.text = text);
   }
 
   onChange() {
-    this.storeService.onChange(this.text);
+    this.notesService.onChange(this.text);
+  }
+
+  onFieldClick() {
+    this.uiService.closeSaveMenu();
+    this.uiService.closeLoadMenu();
   }
 
 }

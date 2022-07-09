@@ -11,6 +11,7 @@ import { FieldComponent } from './components/field/field.component';
 import { SaveComponent } from './components/save/save.component';
 import { LoadComponent } from './components/load/load.component';
 import { LoadItemComponent } from './components/load-item/load-item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoadItemComponent } from './components/load-item/load-item.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

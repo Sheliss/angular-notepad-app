@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UiService } from 'src/app/services/ui.service';
-import { StoreService } from 'src/app/services/store.service';
+import { NotesService } from 'src/app/services/notes.service';
 @Component({
   selector: 'app-save',
   templateUrl: './save.component.html',
@@ -10,11 +10,12 @@ export class SaveComponent implements OnInit {
   showSave: boolean = false;
   name: string = '';
 
-  constructor(private uiService: UiService, private storeService: StoreService) { 
-    this.uiService.showSave.subscribe((showSave: boolean) => this.showSave = showSave);
+  constructor(private uiService: UiService, private notesService: NotesService) { 
+
   }
 
   ngOnInit(): void {
+    this.uiService.showSave.subscribe((showSave: boolean) => this.showSave = showSave);
   }
 
   saveNote() { 
@@ -23,7 +24,7 @@ export class SaveComponent implements OnInit {
       return
     }
 
-    this.storeService.saveNote(this.name);
+    this.notesService.saveNote(this.name);
 
     this.name = '';
     

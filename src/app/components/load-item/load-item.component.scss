@@ -4,6 +4,20 @@
     padding: 5px;
     margin-bottom: 5px;
     cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    fa-icon {
+        margin-right: 5px;
+        font-size: 20px;
+        transition: all .1s;
+
+        &:hover {
+            color: red;
+        }
+    }
 
     h3 {
         font-weight: 400;
@@ -11,6 +25,10 @@
 
     &:hover {
         background-color: #FAEDCD;
+    }
+
+    &--active {
+        box-shadow: 0 0 0 3px #CCD5AE;
     }
 
 }

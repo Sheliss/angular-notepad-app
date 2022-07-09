@@ -5,7 +5,8 @@ import { Notes } from '../Notes';
 @Injectable({
   providedIn: 'root'
 })
-export class StoreService {
+export class NotesService {
+  // Notes List 
   private text = new BehaviorSubject<string>('');
   cast = this.text.asObservable();
 
@@ -45,7 +46,28 @@ export class StoreService {
 
   }
 
+  loadNote(note: number) {
+    const notes: Notes[] = this.getNotes();
+    const filtered: any = notes.find(n => n.id === note);
+    const text: string = filtered.text;
+    this.text.next(text);
+  }
+
+  clearField() {
+    this.text.next('');
+  }
+
+ 
+
   onChange (text: string) {
     this.text.next(text)
+  }
+  //Note tracking
+
+  private note = new BehaviorSubject<number>(-1);
+  currentNote = this.note.asObservable();
+
+  onNoteChose (note: number) { 
+    this.note.next(note);
   }
 }

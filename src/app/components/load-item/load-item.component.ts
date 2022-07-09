@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Notes } from 'src/app/Notes';
+import { NotesService } from 'src/app/services/notes.service';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-load-item',
@@ -8,15 +10,27 @@ import { Notes } from 'src/app/Notes';
 })
 export class LoadItemComponent implements OnInit {
   @Input() note: Notes = { id: -1, name: 'No Name', text: 'Empty' };
-  @Output() onNoteSelected: EventEmitter<number> = new EventEmitter();
+  @Output() onDeleteClick: EventEmitter<object> = new EventEmitter();
+  currentNote: number = -1;
+  faTimes = faTimes;
+ 
 
-  constructor() { }
+  constructor(private notesService: NotesService) { }
 
   ngOnInit(): void {
+    this.notesService.currentNote.subscribe((currentNote: number) => this.currentNote = currentNote);
   }
 
-  noteSelect(note: Notes) {
-    this.onNoteSelected.emit(note.id);
+  onClick() {
+    this.notesService.onNoteChose(this.note.id);
+  }
+  
+  onDelete() {
+    const data: object = {
+      id: this.note.id,
+      name: this.note.name
+    }
+    this.onDeleteClick.emit(data);
   }
 
 }

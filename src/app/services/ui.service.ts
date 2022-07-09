@@ -5,10 +5,12 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class UiService {
+  constructor() { }
+
+  //Save menu
   private showSaveData = new BehaviorSubject<boolean>(false);
   showSave = this.showSaveData.asObservable();
 
-  constructor() { }
 
   toggleSaveMenu() {
     this.showSaveData.next(!this.showSaveData.value)
@@ -16,5 +18,29 @@ export class UiService {
 
   closeSaveMenu() {
     this.showSaveData.next(false)
+  }
+
+  //Load menu
+  private showLoadData = new BehaviorSubject<boolean>(false);
+  showLoad = this.showLoadData.asObservable();
+
+  toggleLoadMenu() {
+    this.showLoadData.next(!this.showLoadData.value)
    }
+
+  closeLoadMenu() {
+    this.showLoadData.next(false)
+  }
+
+  //Delete alert
+  private showAlertData = new BehaviorSubject<boolean>(false);
+  showAlertBox = this.showAlertData.asObservable();
+
+  showAlert() { 
+    this.showAlertData.next(true);
+  }
+
+  closeAlert() { 
+    this.showAlertData.next(false);
+  }
 }

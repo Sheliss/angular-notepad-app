@@ -1,3 +1,4 @@
-<div (click)="noteSelect(note)" class="load__item">
+<div (click)="onClick()" [ngClass]="note.id === currentNote ? 'load__item load__item--active' : 'load__item'"  >
     <h3>{{note.name}}</h3>
+    <fa-icon (click)="onDelete()" [icon]="faTimes"></fa-icon>
 </div>
