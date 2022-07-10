@@ -25,12 +25,9 @@ export class LoadItemComponent implements OnInit {
     this.notesService.onNoteChose(this.note.id);
   }
   
-  onDelete() {
-    const data: object = {
-      id: this.note.id,
-      name: this.note.name
-    }
-    this.onDeleteClick.emit(data);
+  onDelete(note: Notes) {
+ 
+    this.onDeleteClick.emit(note);
   }
 
 }

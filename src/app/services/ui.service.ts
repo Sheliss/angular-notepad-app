@@ -34,7 +34,7 @@ export class UiService {
 
   //Delete alert
   private showAlertData = new BehaviorSubject<boolean>(false);
-  showAlertBox = this.showAlertData.asObservable();
+  showDeleteAlert = this.showAlertData.asObservable();
 
   showAlert() { 
     this.showAlertData.next(true);
@@ -43,4 +43,11 @@ export class UiService {
   closeAlert() { 
     this.showAlertData.next(false);
   }
-}
+
+  //Close all
+  closeAllPopups() {
+    this.showSaveData.next(false);
+    this.showLoadData.next(false);
+    this.showAlertData.next(false);
+  }
+ }

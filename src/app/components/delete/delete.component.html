@@ -1,0 +1,7 @@
+<div *ngIf="showDeleteAlert" class="delete-alert">
+    <h2>Delete {{note.name}} ?</h2>
+    <div class="delete-alert__buttons">
+        <button (click)="onYesClick()" class="delete-alert__btn delete-alert__btn--green">Yes</button>
+        <button (click)="onNoClick()" class="delete-alert__btn delete-alert__btn--red">No</button>
+    </div>
+</div>

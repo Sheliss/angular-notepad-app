@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UiService } from 'src/app/services/ui.service';
 import { NotesService } from 'src/app/services/notes.service';
+import { Notes } from 'src/app/Notes';
 
 @Component({
   selector: 'app-menu',
@@ -15,12 +16,12 @@ export class MenuComponent implements OnInit {
   }
 
   showSaveMenu() {
-    this.uiService.closeLoadMenu();
+    this.uiService.closeAllPopups();
     this.uiService.toggleSaveMenu();
   }
 
   showLoadMenu() {
-    this.uiService.closeSaveMenu();
+    this.uiService.closeAllPopups();
     this.uiService.toggleLoadMenu();
   }
 

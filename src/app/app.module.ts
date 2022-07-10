@@ -12,6 +12,7 @@ import { SaveComponent } from './components/save/save.component';
 import { LoadComponent } from './components/load/load.component';
 import { LoadItemComponent } from './components/load-item/load-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DeleteComponent } from './components/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FieldComponent,
     SaveComponent,
     LoadComponent,
-    LoadItemComponent
+    LoadItemComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,

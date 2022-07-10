@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Notes } from 'src/app/Notes';
 import { NotesService } from 'src/app/services/notes.service';
 import { UiService } from 'src/app/services/ui.service';
@@ -12,11 +12,13 @@ export class LoadComponent implements OnInit {
   notes: Notes[] = [];
   currentNote: number = -1;
   showLoad: boolean = false;
+  forDelete: Notes = {id: -1, name: 'No note', text: ''};
 
   constructor(private notesService: NotesService, private uiService: UiService) { }
 
   ngOnInit(): void {
     this.notes = this.notesService.getNotes();
+    this.notesService.sharedNotes.subscribe((sharedNotes) => this.notes = sharedNotes);
     this.notesService.currentNote.subscribe((currentNote: number) => this.currentNote = currentNote);
     this.uiService.showLoad.subscribe((showLoad: boolean) => this.showLoad = showLoad);
   }
@@ -26,8 +28,9 @@ export class LoadComponent implements OnInit {
     this.uiService.closeLoadMenu();
   }
 
-  onDelete(data: any) {
-    console.log(data.id)
+  onDelete(note: Notes) {
+    this.forDelete = note;
+    this.uiService.showAlert();
   }
 
 }

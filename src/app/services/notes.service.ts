@@ -9,6 +9,8 @@ export class NotesService {
   // Notes List 
   private text = new BehaviorSubject<string>('');
   cast = this.text.asObservable();
+  private currentList = new BehaviorSubject<Notes[]>([]);
+  sharedNotes = this.currentList.asObservable();
 
   constructor() { }
 
@@ -16,6 +18,8 @@ export class NotesService {
     arr.forEach((item: Notes, index: number) => {
       item.id = index;
     });
+
+    return arr;
   }
 
 
@@ -26,7 +30,9 @@ export class NotesService {
     }
 
     const temp: any = localStorage.getItem('notes');
-    return JSON.parse(temp);
+    const parsed = JSON.parse(temp);
+    this.currentList.next(parsed);
+    return parsed
   }
 
   saveNote (name: string) {
@@ -38,12 +44,11 @@ export class NotesService {
 
     let notes: Notes[] = this.getNotes();
     notes.push(currentNote);
-    this.idGen(notes);
+    notes = this.idGen(notes);
     const json: string = JSON.stringify(notes);
-    console.log(json);
-
     localStorage.setItem('notes', json);
 
+    this.currentList.next(notes);
   }
 
   loadNote(note: number) {
@@ -53,6 +58,16 @@ export class NotesService {
     this.text.next(text);
   }
 
+  deleteNote(note: Notes) {
+    let notes: Notes[] = this.getNotes();
+    notes = notes.filter((n) => n.id !== note.id);
+    notes = this.idGen(notes);
+    const json: string = JSON.stringify(notes);
+    localStorage.setItem('notes', json);
+    this.currentList.next(notes);
+    this.note.next(-1);
+  }
+ 
   clearField() {
     this.text.next('');
   }

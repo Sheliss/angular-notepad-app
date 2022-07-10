@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NotesService } from 'src/app/services/notes.service';
 import { UiService } from 'src/app/services/ui.service';
 
@@ -21,8 +21,7 @@ export class FieldComponent implements OnInit {
   }
 
   onFieldClick() {
-    this.uiService.closeSaveMenu();
-    this.uiService.closeLoadMenu();
+    this.uiService.closeAllPopups();
   }
 
 }
