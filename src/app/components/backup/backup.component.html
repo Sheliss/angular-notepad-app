@@ -1,0 +1,7 @@
+<div *ngIf="showBackup" class="popup">
+    <div class="backup__menu">
+        <button (click)="onSave()" class="backup__btn backup__btn--first">Save to file</button>
+        <button (click)="onLoadClick(uploader)" class="backup__btn backup__btn--">Load from file</button>
+        <input type="file" class="file-input" name="file-input" id="file-input" (change)="onLoad($event)" accept=".json" #uploader>
+    </div>
+</div>

@@ -16,17 +16,19 @@ export class MenuComponent implements OnInit {
   }
 
   showSaveMenu() {
-    this.uiService.closeAllPopups();
     this.uiService.toggleSaveMenu();
   }
 
   showLoadMenu() {
-    this.uiService.closeAllPopups();
     this.uiService.toggleLoadMenu();
   }
 
   clearField() {
     this.notesService.clearField();
+  }
+
+  showBackupMenu() { 
+    this.uiService.toggleBackup();
   }
 
 

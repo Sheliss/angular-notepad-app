@@ -13,6 +13,8 @@ import { LoadComponent } from './components/load/load.component';
 import { LoadItemComponent } from './components/load-item/load-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DeleteComponent } from './components/delete/delete.component';
+import { BackupComponent } from './components/backup/backup.component';
+import { FileSaverModule } from 'ngx-filesaver';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { DeleteComponent } from './components/delete/delete.component';
     SaveComponent,
     LoadComponent,
     LoadItemComponent,
-    DeleteComponent
+    DeleteComponent,
+    BackupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FileSaverModule
   ],
   providers: [],
   bootstrap: [AppComponent]

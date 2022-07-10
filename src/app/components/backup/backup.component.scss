@@ -1,0 +1,29 @@
+.popup {
+    padding: 30px;
+}
+
+.backup__menu {
+    display: flex;
+    flex-direction: column;
+
+    .backup__btn {
+        width: 200px;
+        font-weight: 700;
+        font-size: 16px;
+        padding: 10px 0;
+        background-color: transparent;
+        color: #fff;
+        border: 3px solid #CCD5AE;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all .1s;
+
+        &--first {
+            margin-bottom: 20px;
+        }
+
+        &:hover {
+            background-color: #CCD5AE;
+        }
+    }
+}

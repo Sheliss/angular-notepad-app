@@ -13,7 +13,12 @@ export class UiService {
 
 
   toggleSaveMenu() {
-    this.showSaveData.next(!this.showSaveData.value)
+    if(this.showSaveData.value === true) {
+      this.closeAllPopups();
+      return
+    }
+    this.closeAllPopups();
+    this.showSaveData.next(true);
    }
 
   closeSaveMenu() {
@@ -25,7 +30,12 @@ export class UiService {
   showLoad = this.showLoadData.asObservable();
 
   toggleLoadMenu() {
-    this.showLoadData.next(!this.showLoadData.value)
+    if(this.showLoadData.value === true) {
+      this.closeAllPopups();
+      return
+    }
+    this.closeAllPopups();
+    this.showLoadData.next(true)
    }
 
   closeLoadMenu() {
@@ -44,10 +54,29 @@ export class UiService {
     this.showAlertData.next(false);
   }
 
+  //Backup Menu
+
+  private showBackupData = new BehaviorSubject<boolean>(false);
+  showBackupMenu = this.showBackupData.asObservable();
+
+  toggleBackup() {
+    if(this.showBackupData.value === true) {
+      this.closeAllPopups();
+      return
+    }
+    this.closeAllPopups();
+    this.showBackupData.next(true)
+  }
+
+  closeBackup() {
+    this.showBackupData.next(false);
+  }
+
   //Close all
   closeAllPopups() {
     this.showSaveData.next(false);
     this.showLoadData.next(false);
     this.showAlertData.next(false);
+    this.showBackupData.next(false);
   }
  }
