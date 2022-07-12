@@ -54,8 +54,18 @@ export class NotesService {
   loadNote(note: number) {
     const notes: Notes[] = this.getNotes();
     const filtered: any = notes.find(n => n.id === note);
+    if(filtered === undefined) {
+      alert ('Something wrong, might be broken backup file');
+      return
+    }
     const text: string = filtered.text;
     this.text.next(text);
+  }
+
+  loadSavedNotes(notes: Notes[]) {
+    this.currentList.next(notes);
+    const json: string = JSON.stringify(notes);
+    localStorage.setItem('notes', json);
   }
 
   deleteNote(note: Notes) {

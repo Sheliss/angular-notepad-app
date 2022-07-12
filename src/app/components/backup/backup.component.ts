@@ -29,12 +29,7 @@ export class BackupComponent implements OnInit {
     fileInput.click();
   }
 
-  onLoad(event: Event) {
-    const element = event.currentTarget as HTMLInputElement;
-    let fileList: FileList | null = element.files;
-    if(fileList) {
-
-    }
-    
+  changeListener($event: Event) {
+    this.backupService.loadFile($event.target);
   }
 }
