@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UiService } from 'src/app/services/ui.service';
 import { NotesService } from 'src/app/services/notes.service';
-import { Notes } from 'src/app/Notes';
 
 @Component({
   selector: 'app-menu',
@@ -9,13 +8,19 @@ import { Notes } from 'src/app/Notes';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+  text: string = '';
 
   constructor(private uiService: UiService, private notesService: NotesService) { }
 
   ngOnInit(): void {
+    this.notesService.currentText.subscribe((text: string) => this.text = text);
   }
 
   showSaveMenu() {
+    if(this.text === '') {
+      this.uiService.showInfo('Nothing to save!');
+      return
+    }
     this.uiService.toggleSaveMenu();
   }
 

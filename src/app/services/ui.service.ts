@@ -43,15 +43,15 @@ export class UiService {
   }
 
   //Delete alert
-  private showAlertData = new BehaviorSubject<boolean>(false);
-  showDeleteAlert = this.showAlertData.asObservable();
+  private deleteAlert = new BehaviorSubject<boolean>(false);
+  showDeleteAlert = this.deleteAlert.asObservable();
 
   showAlert() { 
-    this.showAlertData.next(true);
+    this.deleteAlert.next(true);
   }
 
   closeAlert() { 
-    this.showAlertData.next(false);
+    this.deleteAlert.next(false);
   }
 
   //Backup Menu
@@ -72,11 +72,28 @@ export class UiService {
     this.showBackupData.next(false);
   }
 
+  //Info alert
+
+  private infoAlert = new BehaviorSubject<boolean>(false);
+  showInfoAlert = this.infoAlert.asObservable();
+  private infoText = new BehaviorSubject<string>('No text');
+  alertInfoText = this.infoText.asObservable();
+
+  showInfo(text: string) {
+    this.infoText.next(text);
+    this.infoAlert.next(true);
+  }
+
+  closeInfo() {
+    this.infoAlert.next(false);
+  }
+
   //Close all
   closeAllPopups() {
     this.showSaveData.next(false);
     this.showLoadData.next(false);
-    this.showAlertData.next(false);
+    this.deleteAlert.next(false);
     this.showBackupData.next(false);
+    this.infoAlert.next(false);
   }
  }

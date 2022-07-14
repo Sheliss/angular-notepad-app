@@ -13,6 +13,11 @@ export class BackupService {
 
   saveFile(notes: Notes[]) {
     const toSave: any = notes;
+    if(toSave.length <= 0) {
+      this.uiService.showInfo('Nothing to save!');
+      this.uiService.closeBackup();
+      return
+    }
     const parsed = JSON.stringify(toSave);
     const blob = new Blob([parsed], { type: 'text/plain;charset=utf-8' });
     this.fileSaverService.save(blob, 'savedNotes.json')
@@ -22,12 +27,7 @@ export class BackupService {
     let file: File = inputValue.files[0];
 
     if(file.type !== 'application/json') {
-      alert('Wrong file');
-      return
-    }
-
-    if(file.name !== 'savedNotes.json') {
-      alert('Wrong file');
+      this.uiService.showInfo('Wrong file!');
       return
     }
 
@@ -38,7 +38,7 @@ export class BackupService {
     try {
       parsedData = JSON.parse(data);
     } catch {
-      alert('Wrong file')
+      this.uiService.showInfo('Wrong file!');
       return
     }
       const toSave: Notes[] = parsedData;

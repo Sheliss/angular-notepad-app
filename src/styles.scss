@@ -57,3 +57,25 @@ body {
 .file-input {
     display: none;
 }
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 720px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        width: 960px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        width: 540px;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+}

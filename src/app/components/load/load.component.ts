@@ -23,7 +23,11 @@ export class LoadComponent implements OnInit {
     this.uiService.showLoad.subscribe((showLoad: boolean) => this.showLoad = showLoad);
   }
 
-  onClick() {
+  onLoadClick() {
+    if(this.currentNote <= -1) {
+      this.uiService.showInfo('Choose note to load first!');
+      return
+    }
     this.notesService.loadNote(this.currentNote);
     this.uiService.closeLoadMenu();
   }
@@ -31,6 +35,10 @@ export class LoadComponent implements OnInit {
   onDelete(note: Notes) {
     this.forDelete = note;
     this.uiService.showAlert();
+  }
+
+  onNoNotesClick() {
+    this.uiService.closeLoadMenu();
   }
 
 }

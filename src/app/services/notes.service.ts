@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Notes } from '../Notes';
+import { UiService } from './ui.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,11 @@ import { Notes } from '../Notes';
 export class NotesService {
   // Notes List 
   private text = new BehaviorSubject<string>('');
-  cast = this.text.asObservable();
+  currentText = this.text.asObservable();
   private currentList = new BehaviorSubject<Notes[]>([]);
   sharedNotes = this.currentList.asObservable();
 
-  constructor() { }
+  constructor(private uiService: UiService) { }
 
   private idGen (arr: any) {
     arr.forEach((item: Notes, index: number) => {
@@ -55,7 +56,7 @@ export class NotesService {
     const notes: Notes[] = this.getNotes();
     const filtered: any = notes.find(n => n.id === note);
     if(filtered === undefined) {
-      alert ('Something wrong, might be broken backup file');
+      this.uiService.showInfo('Something wrong, might be broken backup file');
       return
     }
     const text: string = filtered.text;

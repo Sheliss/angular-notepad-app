@@ -20,7 +20,7 @@ export class SaveComponent implements OnInit {
 
   saveNote() { 
     if(this.name === '') {
-      alert('Enter name!')
+      this.uiService.showInfo('Enter name!');
       return
     }
 

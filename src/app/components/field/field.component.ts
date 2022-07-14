@@ -13,7 +13,7 @@ export class FieldComponent implements OnInit {
   constructor(private notesService: NotesService, private uiService: UiService) { }
 
   ngOnInit(): void {
-    this.notesService.cast.subscribe((text: string) => this.text = text);
+    this.notesService.currentText.subscribe((text: string) => this.text = text);
   }
 
   onChange() {

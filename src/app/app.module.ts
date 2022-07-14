@@ -15,6 +15,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DeleteComponent } from './components/delete/delete.component';
 import { BackupComponent } from './components/backup/backup.component';
 import { FileSaverModule } from 'ngx-filesaver';
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FileSaverModule } from 'ngx-filesaver';
     LoadComponent,
     LoadItemComponent,
     DeleteComponent,
-    BackupComponent
+    BackupComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
