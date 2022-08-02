@@ -3,19 +3,18 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class AboutComponent implements OnInit {
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  
   goToMain() {
     this.router.navigateByUrl('');
   }
-  
 }

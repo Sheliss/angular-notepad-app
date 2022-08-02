@@ -16,6 +16,7 @@ import { DeleteComponent } from './components/delete/delete.component';
 import { BackupComponent } from './components/backup/backup.component';
 import { FileSaverModule } from 'ngx-filesaver';
 import { AlertComponent } from './components/alert/alert.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AlertComponent } from './components/alert/alert.component';
     LoadItemComponent,
     DeleteComponent,
     BackupComponent,
-    AlertComponent
+    AlertComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

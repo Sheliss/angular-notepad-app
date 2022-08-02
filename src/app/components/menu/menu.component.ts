@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UiService } from 'src/app/services/ui.service';
 import { NotesService } from 'src/app/services/notes.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +11,9 @@ import { NotesService } from 'src/app/services/notes.service';
 export class MenuComponent implements OnInit {
   text: string = '';
 
-  constructor(private uiService: UiService, private notesService: NotesService) { }
+  constructor(private uiService: UiService, 
+    private notesService: NotesService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.notesService.currentText.subscribe((text: string) => this.text = text);
@@ -36,5 +39,12 @@ export class MenuComponent implements OnInit {
     this.uiService.toggleBackup();
   }
 
+  goToAbout() { 
+    this.router.navigateByUrl('about');
+  }
+
+  hasRoute(route: string) {
+    return this.router.url === route;
+  }
 
 }
